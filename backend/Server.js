@@ -21,9 +21,8 @@ const port = 4000 || 4005;
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "taskin-git-main-gijogeorgep02-6260s-projects.vercel.app",
+  "https://taskin-git-main-gijogeorgep02-6260s-projects.vercel.app",
 ];
-
 const corsOptions = {
   origin: (origin, callback) => {
     if (allowedOrigins.includes(origin) || !origin) {
