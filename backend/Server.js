@@ -21,7 +21,7 @@ const port = 4000 || 4005;
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://taskin-backend-k1w8.onrender.com",
+  "https://taskin-git-main-gijogeorgep02-6260s-projects.vercel.app",
 ];
 
 const corsOptions = {
