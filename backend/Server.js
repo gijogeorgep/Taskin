@@ -21,7 +21,7 @@ const port = 4000 || 4005;
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://project-management-app-new-pshf.onrender.com",
+  "https://taskin-backend-k1w8.onrender.com",
 ];
 
 const corsOptions = {
