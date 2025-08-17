@@ -1,9 +1,15 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
+
+@theme{
+  --color-primary: white;
+  --color-primary-dark: #252526;
+}
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }

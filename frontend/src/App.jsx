@@ -30,16 +30,23 @@ import { Toaster } from "react-hot-toast";
 import EditProject from "./pages/EditProject.jsx";
 import ForgotPassword from "./pages/ForgotPassword.jsx";
 import ResetPassword from "./pages/ResetPassword.jsx";
-
 import ProjectDetails from "./pages/ProjectDetails.jsx";
 // import AutoLogin from "./pages/AutoLogin.jsx";
 import ChangePassword from "./pages/ChangePassword.jsx";
+import { useThemeStore } from "./store/useThemeStore.js";
 
 function AppLayout() {
   const location = useLocation();
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
   const navigate = useNavigate();
   const logoutUser = useAuthStore((state) => state.logout);
+  
+  const { theme, setTheme } = useThemeStore();
+    useEffect(() => {
+    // Apply the stored theme right when the app loads
+    setTheme(theme);
+  }, []); // run once on mount
+
 
   useEffect(() => {
     const interceptor = axiosInstance.interceptors.response.use(
@@ -231,6 +238,8 @@ function AppLayout() {
     </>
   );
 }
+
+
 
 function App() {
   return (

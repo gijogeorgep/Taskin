@@ -119,7 +119,7 @@ export default function Projects() {
 
   if (isLoading) {
     return (
-      <section className="px-4 py-6 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 min-h-screen pl-[20%]">
+      <section className="px-4 py-6 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 min-h-screen pl-[20%] dark:bg-primary-dark">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[...Array(6)].map((_, index) => (
             <SkeletonCard key={index} />
@@ -130,45 +130,71 @@ export default function Projects() {
   }
 
   return (
-    <section className="px-4 py-6 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 w-full min-h-screen md:pl-[20%]">
+    <section className="px-4 py-6 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 w-full min-h-screen md:pl-[20%] dark:from-[#252526] dark:via-[#2c2d31] dark:to-[#3a3b40]
+
+">
       <div className="flex flex-col gap-6 sm:items-start md:justify-between">
         {/* Header */}
         <div className="w-full flex flex-col md:flex-row gap-4 sm:items-start md:justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-gray-800 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text ">
+            <h1 className="text-3xl font-bold text-gray-800 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text dark:from-blue-300 dark:text-white">
               Projects
             </h1>
             <p className="text-md text-gray-600 mt-1">
               Manage and track all your projects
             </p>
           </div>
-          <Link
-            to="/createproject"
-            className="flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-indigo-600 text-white hover:from-blue-600 hover:to-indigo-700 text-sm font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-          >
-            <Plus size={16} /> New Project
-          </Link>
+         <Link
+  to="/createproject"
+  className="
+    flex items-center gap-2 px-6 py-3 rounded-lg 
+    bg-gradient-to-r from-blue-500 to-indigo-600 
+    text-white hover:from-blue-600 hover:to-indigo-700 
+    dark:from-[#252526] dark:to-gray-700 
+    dark:hover:from-gray-700 dark:hover:to-gray-600
+    text-sm font-medium 
+    transition-all duration-200 shadow-lg hover:shadow-xl 
+    transform hover:-translate-y-0.5
+  "
+>
+  <Plus size={16} /> New Project
+</Link>
+
         </div>
 
         {/* Search and Filter */}
-        <div className="w-full flex flex-col sm:flex-row items-center gap-6">
-          <div className="w-full sm:max-w-md relative">
-            <Search className="text-gray-400 h-5 w-5 absolute top-3 left-3" />
-            <input
-              type="text"
-              placeholder="Search projects..."
-              value={searchText}
-              onChange={(e) => setSearchText(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-200 bg-white/80 backdrop-blur-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm"
-            />
-          </div>
-          <button
-            onClick={() => setShowFilter((prev) => !prev)}
-            className="flex items-center gap-2 px-6 py-3 rounded-lg bg-white/80 backdrop-blur-sm text-gray-700 border border-gray-200 hover:bg-white hover:shadow-md text-sm font-medium transition-all duration-200"
-          >
-            <Filter size={16} /> {showFilter ? "Hide Filters" : "Filter"}
-          </button>
-        </div>
+<div className="w-full flex flex-col sm:flex-row items-center gap-6">
+  {/* Search Input */}
+  <div className="w-full sm:max-w-md relative">
+    <Search className="text-gray-400 dark:text-gray-500 h-5 w-5 absolute top-3 left-3" />
+    <input
+      type="text"
+      placeholder="Search projects..."
+      value={searchText}
+      onChange={(e) => setSearchText(e.target.value)}
+      className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 
+                 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm 
+                 text-gray-700 dark:text-gray-200 
+                 placeholder-gray-400 dark:placeholder-gray-500 
+                 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm"
+    />
+  </div>
+
+  {/* Filter Button */}
+  <button
+    onClick={() => setShowFilter((prev) => !prev)}
+    className="flex items-center gap-2 px-6 py-3 rounded-lg 
+               bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm 
+               text-gray-700 dark:text-gray-200 
+               border border-gray-200 dark:border-gray-700 
+               hover:bg-white dark:hover:bg-gray-700 
+               hover:shadow-md text-sm font-medium 
+               transition-all duration-200"
+  >
+    <Filter size={16} /> {showFilter ? "Hide Filters" : "Filter"}
+  </button>
+</div>
+
 
         {showFilter && (
           <form className="flex flex-col md:flex-row md:flex-wrap gap-4 p-6 rounded-xl bg-white/90 backdrop-blur-sm border border-gray-200 shadow-sm">
@@ -255,8 +281,10 @@ export default function Projects() {
                 onClick={() => setCurrentPage(i + 1)}
                 className={`px-4 py-2 rounded-lg transition-all duration-200 ${
                   currentPage === i + 1
-                    ? "bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold shadow-lg"
-                    : "bg-white/80 backdrop-blur-sm text-gray-700 border border-gray-200 hover:bg-white hover:shadow-md"
+                    ? "bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold shadow-lg   dark:hover:from-gray-700 dark:hover:to-gray-600"
+                    : "bg-white/80 backdrop-blur-sm text-gray-700 border border-gray-200 hover:bg-white hover:shadow-md   dark:hover:from-gray-700 dark:hover:to-gray-600"
+
+                    
                 }`}
               >
                 {i + 1}
