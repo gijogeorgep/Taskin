@@ -23,7 +23,7 @@ const allowedOrigins = [
   "http://localhost:5173",
   "https://taskin-git-main-gijogeorgep02-6260s-projects.vercel.app",
   "https://taskin-rho.vercel.app",
-];
+]; 
 const corsOptions = {
   origin: (origin, callback) => {
     if (allowedOrigins.includes(origin) || !origin) {
