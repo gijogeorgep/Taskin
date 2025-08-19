@@ -23,6 +23,16 @@ function Login() {
     }
   };
 
+  const handleDemoLogin = async () => {
+    try {
+      await login({ email: "demouser@gmail.com", password: "demo123" }); 
+      navigate("/");
+      console.log("Demo login successful!");
+    } catch (error) {
+      console.error("Demo login failed:", error);
+    }
+  };
+
   return (
     <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-black min-h-screen flex items-center justify-center px-4">
       {/* Glassmorphism Card */}
@@ -68,6 +78,13 @@ function Login() {
           >
             Sign In
           </button>
+
+           <button
+          onClick={handleDemoLogin}
+          className="mt-3 bg-green-600/90 hover:bg-green-600 text-white font-semibold px-6 py-3 rounded-lg w-full transition-all duration-200"
+        >
+          Login as Demo User
+        </button>
         </form>
 
         
