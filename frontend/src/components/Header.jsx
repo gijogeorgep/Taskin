@@ -105,7 +105,7 @@ function Header() {
           <img
             src={sidebarIcon}
             alt="Toggle Sidebar"
-            className="opacity-70 hover:opacity-100 transition-opacity dark:invert"
+            className="opacity-70 hover:opacity-100 transition-opacity dark"
           />
         </div>
       </div>

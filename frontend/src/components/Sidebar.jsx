@@ -35,9 +35,9 @@ function Sidebar() {
           className="
             fixed top-0 left-0 z-50 
             bg-primary dark:bg-primary-dark 
-            text-gray-800 dark:text-gray-200
+            text-gray-800 dark:text-gray-200 dark:shadow-lg 
             backdrop-blur-md w-[80%] h-auto min-h-[100vh] p-4 
-            md:hidden border-r border-gray-200/50 dark:border-gray-700 shadow-2xl
+            md:hidden border-r border-gray-200/50 dark:border-gray-00 shadow-2xl
           "
         >
           {/* Header */}

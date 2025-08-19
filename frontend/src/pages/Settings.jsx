@@ -12,8 +12,7 @@ function Settings() {
 
   return (
     <div className="flex flex-col lg:flex-row w-full min-h-screen pt-2  
-      bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 
-      dark:from-[#252526] dark:via-[#2c2d31] dark:to-[#3a3b40] 
+      bg-gradient-to-br from-slate-50 via-gray-50 to-slate-100  dark:from-[#252526] dark:via-[#2c2d31] dark:to-[#3a3b40]
       px-4 lg:pl-64"
     >
       {/* Sidebar */}
@@ -27,7 +26,7 @@ function Settings() {
           </p>
         </div>
         
-        <div className="bg-white dark:bg-[#2e2f33] rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-2">
+        <div className="bg-gradient-to-br from-slate-50 via-gray-50 to-slate-100  dark:from-[#252526] dark:via-[#2c2d31] dark:to-[#3a3b40] rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-2">
           <div className="flex flex-col gap-1">
             {/* Profile */}
             <button
