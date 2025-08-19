@@ -25,7 +25,7 @@ const SkeletonBox = ({ width = "w-full", height = "h-4", className = "" }) => (
 );
 
 const SkeletonHeader = () => (
-  <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 mb-8">
+  <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 mb-8 ">
     <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
       <div className="flex items-start gap-4 flex-1">
         <SkeletonBox width="w-8" height="h-8" className="hidden sm:block mt-1" />
@@ -134,24 +134,24 @@ export default function ProjectDetails() {
   }, [projectId]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-gray-50 to-slate-100">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-gray-50 to-slate-100  dark:from-[#252526] dark:via-[#2c2d31] dark:to-[#3a3b40] p-4 sm:p-6">
       <div className="px-6 md:pl-[20%] py-8">
         {/* Header */}
         {loading ? (
           <SkeletonHeader />
         ) : (
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 mb-8">
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 mb-8 dark:bg-[#1e1f23] dark:border-gray-700">
             <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
               <div className="flex items-start gap-4 flex-1">
                 <Link 
                   to="/projects"
-                  className="p-2 hover:bg-gray-100 rounded-xl transition-colors duration-200 hidden sm:flex items-center justify-center"
+                  className="p-2 hover:bg-gray-100 rounded-xl transition-colors duration-200 hidden sm:flex items-center justify-center dark:hover:bg-gray-700"
                 >
                   <ArrowLeft className="w-5 h-5 text-gray-600" />
                 </Link>
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-3">
-                    <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
+                    <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight dark:text-gray-100">
                       {toTitleCase(project?.title) || "Project title unavailable"}
                     </h1>
                     <span className={`px-3 py-1 text-sm font-medium rounded-full border ${getStatusColor(project?.status)}`}>
@@ -160,25 +160,29 @@ export default function ProjectDetails() {
                         : "N/A"}
                     </span>
                   </div>
-                  <p className="text-gray-600 text-lg leading-relaxed">
+                  <p className="text-gray-600 text-lg leading-relaxed dark:text-gray-300">
                     {toTitleCase(project?.description) || "No description available."}
                   </p>
                 </div>
               </div>
               <div className="flex flex-wrap gap-3">
                 <Link to={`/editProject/${projectId}`}>
-                  <button className="bg-white border border-gray-300 hover:bg-gray-50 hover:border-gray-400 px-6 py-3 rounded-xl text-gray-700 flex items-center gap-2 font-medium transition-all duration-200 shadow-sm">
+                  <button className="bg-white border border-gray-300 hover:bg-gray-50 hover:border-gray-400 px-6 py-3 rounded-xl text-gray-700 flex items-center gap-2 font-medium transition-all duration-200 shadow-sm dark:bg-[#2c2d31] dark:border-gray-600 dark:hover:bg-[#3a3b40] dark:text-gray-100">
                     <SquarePen className="w-4 h-4" />
                     Edit Project
                   </button>
                 </Link>
                 <button
-                  onClick={() => setIsModalOpen(true)}
-                  className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 py-3 rounded-xl flex items-center gap-2 font-medium transition-all duration-200 shadow-sm"
-                >
-                  <Plus className="w-4 h-4" />
-                  Add Task List
-                </button>
+  onClick={() => setIsModalOpen(true)}
+  className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 
+             dark:from-gray-600 dark:to-gray-700 dark:hover:from-gray-700 dark:hover:to-gray-800
+             text-white px-6 py-3 rounded-xl flex items-center gap-2 font-medium 
+             transition-all duration-200 shadow-sm"
+>
+  <Plus className="w-4 h-4" />
+  Add Task List
+</button>
+
               </div>
             </div>
           </div>
@@ -189,20 +193,20 @@ export default function ProjectDetails() {
           {/* Left Sidebar */}
           <div className="xl:w-96 space-y-6">
             {/* Project Overview */}
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 dark:bg-[#1e1f23] dark:border-gray-700  ">
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 bg-blue-50 rounded-xl">
+                <div className="p-2 bg-blue-50 rounded-xl dark:bg-blue-900/40">
                   <BarChart3 className="w-5 h-5 text-blue-600" />
                 </div>
-                <h2 className="text-xl font-semibold text-gray-900">Project Overview</h2>
+                <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100">Project Overview</h2>
               </div>
               
               <div className="space-y-6">
                 {/* Progress */}
                 <div>
                   <div className="flex justify-between items-center mb-3">
-                    <span className="text-sm font-medium text-gray-600">Progress</span>
-                    <span className="text-sm font-bold text-gray-900">{project.progress || 0}%</span>
+                    <span className="text-sm font-medium text-gray-600 dark:text-gray-300">Progress</span>
+                    <span className="text-sm font-bold text-gray-900 dark:text-gray-100">{project.progress || 0}%</span>
                   </div>
                   <div className="w-full bg-gray-100 rounded-full h-3">
                     <div 
@@ -288,12 +292,12 @@ export default function ProjectDetails() {
             </div>
 
             {/* Team Members */}
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 dark:bg-[#1e1f23] dark:border-gray-700">
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 bg-indigo-50 rounded-xl">
+                <div className="p-2 bg-indigo-50 rounded-xl dark:bg-indigo-900/40">
                   <Users className="w-5 h-5 text-indigo-600" />
                 </div>
-                <h2 className="text-xl font-semibold text-gray-900">Team Members</h2>
+                <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100">Team Members</h2>
                 <span className="ml-auto bg-gray-100 text-gray-600 text-xs font-medium px-2 py-1 rounded-full">
                   {members?.length || 0}
                 </span>
@@ -301,16 +305,16 @@ export default function ProjectDetails() {
               
               {members?.length === 0 ? (
                 <div className="text-center py-8">
-                  <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-3 dark:bg-gray-700">
                     <Users className="w-8 h-8 text-gray-400" />
                   </div>
-                  <p className="text-gray-500 font-medium">No team members yet</p>
+                  <p className="text-gray-500 font-medium ">No team members yet</p>
                   <p className="text-gray-400 text-sm">Add members to get started</p>
                 </div>
               ) : (
                 <div className="space-y-3">
                   {members.map((member, idx) => (
-                    <div key={idx} className="flex items-center gap-4 p-3 hover:bg-gray-50 rounded-xl transition-colors duration-200">
+                    <div key={idx} className="flex items-center gap-4 p-3 hover:bg-gray-50 rounded-xl transition-colors duration-200 dark:hover:bg-gray-700">
                       {member.user?.profilePic ? (
                         <img
                           src={member.user.profilePic}
@@ -324,10 +328,10 @@ export default function ProjectDetails() {
                         />
                       )}
                       <div className="flex-1">
-                        <p className="font-semibold text-gray-900">
+                        <p className="font-semibold text-gray-900 dark:text-gray-100">
                           {toTitleCase(member.user?.name) || "Unknown Member"}
                         </p>
-                        <p className="text-sm text-gray-500">
+                        <p className="text-sm text-gray-500 dark:text-gray-300" >
                           {toTitleCase(member.role?.name) || "No role assigned"}
                         </p>
                       </div>

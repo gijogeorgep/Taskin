@@ -24,15 +24,15 @@ function RecentTasks() {
   const getPriorityStyle = (priority = "") => {
     switch (priority.toLowerCase()) {
       case "critical":
-        return "bg-red-100 text-red-900";
+        return "bg-red-100 text-red-900 dark:bg-red-900/40 dark:text-red-300";
       case "high":
-        return "bg-orange-100 text-orange-700";
+        return "bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300";
       case "medium":
-        return "bg-yellow-100 text-yellow-700";
+        return "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-300";
       case "low":
-        return "bg-green-100 text-green-700";
+        return "bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300";
       default:
-        return "bg-gray-100 text-gray-700";
+        return "bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300";
     }
   };
 
@@ -62,20 +62,23 @@ function RecentTasks() {
   const currentTasks = [...visibleTasks].reverse().slice(startIndex, startIndex + itemsPerPage);
 
   return (
-    <div className="bg-white/90 backdrop-blur-md w-full rounded-xl border border-gray-200 p-5 shadow-lg">
-      <h1 className="font-bold text-2xl text-gray-800 pb-5">Recent Tasks</h1>
+    <div className="bg-white/90 dark:bg-[#2b2b2b] backdrop-blur-md w-full rounded-xl 
+                    border border-gray-200 dark:border-gray-700 p-5 shadow-lg">
+      <h1 className="font-bold text-2xl text-gray-800 dark:text-gray-100 pb-5">Recent Tasks</h1>
 
       {currentTasks && currentTasks.length > 0 ? (
         <>
           {currentTasks.map((task) => (
             <div
               key={task._id}
-              className="bg-gray-50/70 hover:bg-blue-50/70 w-full rounded-lg p-3.5 flex items-center justify-between mb-2 cursor-pointer transition-all border border-gray-100"
+              className="bg-gray-50/70 dark:bg-gray-800 hover:bg-blue-50/70 dark:hover:bg-gray-700 
+                         w-full rounded-lg p-3.5 flex items-center justify-between mb-2 cursor-pointer 
+                         transition-all border border-gray-100 dark:border-gray-700"
               onClick={() => handleTaskClick(task)}
             >
-              <div className="text-sm flex flex-col gap-1 text-gray-800">
+              <div className="text-sm flex flex-col gap-1 text-gray-800 dark:text-gray-100">
                 <p className="font-medium">{toTitleCase(task.title)}</p>
-                <p className="text-xs text-gray-600">
+                <p className="text-xs text-gray-600 dark:text-gray-400">
                   {toTitleCase(task.project?.title) ?? "Unnamed Project"}
                 </p>
               </div>
@@ -87,7 +90,7 @@ function RecentTasks() {
                 >
                   {task.priority ?? "None"}
                 </span>
-                <h3 className="text-sm text-gray-500">
+                <h3 className="text-sm text-gray-500 dark:text-gray-400">
                   {typeof task.assignedTo === "object"
                     ? toTitleCase(task.assignedTo?.name)
                     : "Unknown"}
@@ -101,11 +104,12 @@ function RecentTasks() {
             <button
               onClick={() => setPage((p) => Math.max(p - 1, 0))}
               disabled={page === 0}
-              className="px-3 py-1 bg-gray-200 rounded disabled:opacity-50"
+              className="px-3 py-1 bg-gray-200 dark:bg-gray-700 
+                         text-gray-800 dark:text-gray-200 rounded disabled:opacity-50"
             >
               ← Prev
             </button>
-            <span className="text-sm text-gray-500">
+            <span className="text-sm text-gray-500 dark:text-gray-400">
               Page {page + 1} of {Math.ceil(visibleTasks.length / itemsPerPage)}
             </span>
             <button
@@ -115,14 +119,15 @@ function RecentTasks() {
                 )
               }
               disabled={startIndex + itemsPerPage >= visibleTasks.length}
-              className="px-3 py-1 bg-gray-200 rounded disabled:opacity-50"
+              className="px-3 py-1 bg-gray-200 dark:bg-gray-700 
+                         text-gray-800 dark:text-gray-200 rounded disabled:opacity-50"
             >
               Next →
             </button>
           </div>
         </>
       ) : (
-        <p className="text-gray-700 text-sm">
+        <p className="text-gray-700 dark:text-gray-300 text-sm">
           {isAdmin ? "No tasks found." : "No tasks assigned to you."}
         </p>
       )}

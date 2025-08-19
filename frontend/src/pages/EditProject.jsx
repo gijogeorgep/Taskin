@@ -43,12 +43,12 @@ const ProjectMemberPermissions = ({
   };
 
   return (
-    <div className="border border-gray-300 rounded-xl p-6 bg-gradient-to-br from-white via-blue-50 to-indigo-50 shadow-sm">
+    <div className="border border-gray-300 rounded-xl p-6 bg-gradient-to-br from-white via-blue-50 to-indigo-50 shadow-sm dark:bg-[#2c2d31] dark:border-gray-600 dark:from-gray-800 dark:via-gray-700 dark:to-gray-600">
       <div
         className="flex justify-between items-center cursor-pointer"
         onClick={() => setExpanded(!expanded)}
       >
-        <h2 className="text-xl font-semibold text-gray-800">
+        <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100 ">
           Project Members & Permissions
         </h2>
         {expanded ? (
@@ -75,7 +75,7 @@ const ProjectMemberPermissions = ({
                   onClick={() => handleMemberToggle(user._id)}
                 >
                   <span>
-                    {user.name}{" "}
+                    {user.name}
                     <span className="text-gray-500 text-xs">
                       ({user.globalRole?.name})
                     </span>
@@ -232,42 +232,42 @@ const EditProject = () => {
   }, [formData.startDate, formData.endDate]);
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-800 flex flex-col px-4 lg:pl-[18%]">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 text-gray-800 flex flex-col px-4 lg:pl-[18%] dark:from-[#252526] dark:via-[#2c2d31] dark:to-[#3a3b40] dark:text-gray-200">
       {/* Sticky Header */}
-      <div className="sticky top-0 px-10 py-4 flex items-center gap-4 bg-white shadow-sm z-10">
+      <div className="sticky top-0 px-10 py-4 flex items-center gap-4 bg-white shadow-sm z-10 dark:bg-[#2c2d31]   ">
         <Link to={`/projects/${projectId}`}>
-          <ArrowLeft className="text-gray-600 hover:text-blue-600 transition" />
+          <ArrowLeft className="text-gray-600 hover:text-blue-600 transition dark:text-gray-300 dark:hover:text-gray-400" />
         </Link>
-        <h2 className="text-2xl font-semibold text-gray-800">Edit Project</h2>
+        <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100">Edit Project</h2>
       </div>
 
       <div className="w-full lg:max-w-[80%] mx-auto py-8">
-        <p className="text-gray-600 mb-6">
-          <span className="font-medium text-gray-800">Created By:</span>{" "}
+        <p className="text-gray-600 mb-6 dark:text-gray-300">
+          <span className="font-medium text-gray-800 dark:text-gray-100">Created By:</span>
           {createdByName}
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-8">
           {/* Project Info */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 border border-gray-300 p-6 rounded-xl bg-white shadow-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 border border-gray-300 p-6 rounded-xl bg-white shadow-sm dark:bg-[#2c2d31] dark:border-gray-600 ">
             <div>
-              <label className="block mb-1 text-sm font-medium text-gray-700">Title</label>
+              <label className="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-100">Title</label>
               <input
                 type="text"
                 name="title"
                 value={formData.title}
                 onChange={handleChange}
-                className="w-full p-3 border border-gray-300 rounded-lg bg-gray-50 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                className="w-full p-3 border border-gray-300 rounded-lg bg-gray-50 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition dark:bg-[#3a3b40] dark:text-gray-200 dark:border-gray-500 dark:focus:ring-gray-600 dark:focus:border-gray-600"
                 placeholder="Project Title"
               />
             </div>
             <div>
-              <label className="block mb-1 text-sm font-medium text-gray-700">Status</label>
+              <label className="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-100">Status</label>
               <select
                 name="status"
                 value={formData.status}
                 onChange={handleChange}
-                className="w-full p-3 border border-gray-300 rounded-lg bg-gray-50 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                className="w-full p-3 border border-gray-300 rounded-lg bg-gray-50 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition dark:bg-[#3a3b40] dark:text-gray-200 dark:border-gray-500 dark:focus:ring-blue-600 dark:focus:border-blue-600"
               >
                 <option value="">Select Status</option>
                 <option value="planned">Planned</option>

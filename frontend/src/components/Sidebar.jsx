@@ -8,7 +8,8 @@ import {
   BarChart3,
   Settings,
 } from "lucide-react";
-import taskinLogo from "../assets/taskin logo.png";
+import taskin_light from "../assets/taskin logo light.png";
+import taskin_dark from "../assets/taskin logo dark.png";
 
 function Sidebar() {
   const { isSidebarOpen, closeSidebar } = useSidebarStore();
@@ -41,9 +42,20 @@ function Sidebar() {
         >
           {/* Header */}
           <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-200/50 dark:border-gray-700">
-            <div className="flex flex-row items-center px-2 gap-3 w-38">
-              <img src={taskinLogo} alt="Taskin Logo" />
-            </div>
+           {/* Logo */}
+<div className="flex flex-row items-center px-2 gap-3 w-48 border-b border-gray-200/50 dark:border-gray-700">
+  <img
+    src={taskin_light}
+    alt="Taskin Logo Light"
+    className="block dark:hidden w-32 h-auto" // show in light mode
+  />
+  <img
+    src={taskin_dark}
+    alt="Taskin Logo Dark"
+    className="hidden dark:block w-32 h-auto" // show in dark mode
+  />
+</div>
+
             <button
               onClick={closeSidebar}
               aria-label="Close Sidebar"
@@ -94,10 +106,21 @@ function Sidebar() {
           border-r border-gray-200/50 dark:border-gray-700
         "
       >
-        {/* Logo */}
-        <div className="flex flex-row items-center px-2 gap-3 w-48 border-b border-gray-200/50 dark:border-gray-700">
-          <img src={taskinLogo} alt="Taskin Logo" />
-        </div>
+       
+<div className="flex flex-row items-center px-2 gap-3 w-56 ">
+  <img
+    src={taskin_light}
+    alt="Taskin Logo Light"
+    className="block dark:hidden w-80 h-auto" // bigger in light mode
+  />
+  <img
+    src={taskin_dark}
+    alt="Taskin Logo Dark"
+    className="hidden dark:block w-80 h-auto" // bigger in dark mode
+  />
+</div>
+
+
 
         {/* Menu */}
         <div className="w-full h-full px-4 py-2">

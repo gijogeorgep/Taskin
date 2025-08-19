@@ -595,16 +595,15 @@ function Reports() {
     });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50  text-black p-4 space-y-6 md:pl-4 lg:pl-[19%]">
-      <h1 className="font-bold uppercase text-sm sm:text-base">Reports</h1>
-
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50  text-black p-4 space-y-6 md:pl-4 lg:pl-[19%] dark:from-[#252526] dark:via-[#2c2d31] dark:to-[#3a3b40]">
+     
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-gray-100">
             Reports & Analytics
           </h2>
-          <p className="text-gray-600 text-xs sm:text-sm">
+          <p className="text-gray-600 text-xs sm:text-sm dark:text-gray-300">
             Track progress and performance across projects
           </p>
         </div>
@@ -627,7 +626,7 @@ function Reports() {
       {/* Filters */}
       <div className="flex flex-col sm:flex-row flex-wrap gap-4">
         <select
-          className="bg-gray-100 text-black px-4 py-2 rounded text-xs sm:text-sm w-full sm:w-[180px]"
+          className="bg-gray-100 text-black px-4 py-2 rounded text-xs sm:text-sm w-full sm:w-[180px] dark:bg-gray-700 dark:text-white"
           value={reportType}
           onChange={(e) => {
             setReportType(e.target.value);
@@ -642,7 +641,7 @@ function Reports() {
           <option value="users">Users</option>
         </select>
         <select
-          className="bg-gray-200 text-black px-4 py-2 rounded text-xs sm:text-sm w-full sm:w-[180px]"
+          className="bg-gray-200 text-black px-4 py-2 rounded text-xs sm:text-sm w-full sm:w-[180px] dark:bg-gray-700 dark:text-white"
           value={dateRange}
           onChange={(e) => setDateRange(e.target.value)}
         >
@@ -656,7 +655,7 @@ function Reports() {
         </select>
         {(reportType === "projects" || reportType === "tasks") && (
           <select
-            className="bg-gray-200 text-black px-4 py-2 rounded text-xs sm:text-sm w-full sm:w-[220px]"
+            className="bg-gray-200 text-black px-4 py-2 rounded text-xs sm:text-sm w-full sm:w-[220px] dark:bg-gray-700 dark:text-white"
             value={selectedProjectId}
             onChange={(e) => {
               setSelectedProjectId(e.target.value);
@@ -674,7 +673,7 @@ function Reports() {
 
         {reportType === "projects" && (
           <select
-            className="bg-gray-200 text-black px-4 py-2 rounded text-xs sm:text-sm w-full sm:w-[180px]"
+            className="bg-gray-200 text-black px-4 py-2 rounded text-xs sm:text-sm w-full sm:w-[180px] dark:bg-gray-700 dark:text-white"
             value={selectedProjectStatus}
             onChange={(e) => setSelectedProjectStatus(e.target.value)}
           >
@@ -690,7 +689,7 @@ function Reports() {
 
         {reportType === "tasks" && selectedProjectId && (
           <select
-            className="bg-gray-200 text-black px-4 py-2 rounded text-xs sm:text-sm w-full sm:w-[220px]"
+            className="bg-gray-200 text-black px-4 py-2 rounded text-xs sm:text-sm w-full sm:w-[220px] dark:bg-gray-700 dark:text-white"
             value={selectedCategoryId}
             onChange={(e) => setSelectedCategoryId(e.target.value)}
           >
@@ -706,7 +705,7 @@ function Reports() {
           <>
             {/* User Status Filter */}
             <select
-              className="bg-[#020817] text-white px-4 py-2 rounded text-xs sm:text-sm w-full sm:w-[160px]"
+              className="bg-gray-200 text-black px-4 py-2 rounded text-xs sm:text-sm w-full sm:w-[160px] dark:bg-gray-700 dark:text-white  "
               value={selectedUserStatus}
               onChange={(e) => setSelectedUserStatus(e.target.value)}
             >
@@ -717,7 +716,7 @@ function Reports() {
 
             {/* User Selector */}
             <select
-              className="bg-gray-200 text-black px-4 py-2 rounded text-xs sm:text-sm w-full sm:w-[220px]"
+              className="bg-gray-200 text-black px-4 py-2 rounded text-xs sm:text-sm w-full sm:w-[220px] dark:bg-gray-700 dark:text-white"
               value={selectedUserId}
               onChange={(e) => setSelectedUserId(e.target.value)}
             >
@@ -745,14 +744,14 @@ function Reports() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {(reportType === "overview" ||
           (reportType === "projects" && !selectedProjectId)) && (
-          <div className="w-full bg-white rounded-xl p-4 shadow-md">
+          <div className="w-full bg-white rounded-xl p-4 shadow-md dark:bg-[#1e1f23] dark:text-white">
             <div className="flex items-center justify-between pb-2">
-              <h2 className="text-xs sm:text-sm font-medium text-gray-800">
+              <h2 className="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-100">
                 Total Projects
               </h2>
               <TrendingUp className="h-4 w-4 text-gray-400" />
             </div>
-            <div className="text-xl sm:text-2xl font-bold text-black">
+            <div className="text-xl sm:text-2xl font-bold text-black dark:text-white">
               {projects.length}
             </div>
             <p className="text-xs text-gray-600">+2 from last month</p>
@@ -760,12 +759,12 @@ function Reports() {
         )}
 
         {reportType === "users" && selectedUserId && (
-          <div className="w-full bg-white rounded-xl p-4 shadow-md ">
+          <div className="w-full bg-white rounded-xl p-4 shadow-md  dark:bg-[#1e1f23] dark:text-white">
             <div className="flex items-center justify-between pb-2">
-              <h2 className="text-xs sm:text-sm font-medium text-gray-900">
+              <h2 className="text-xs sm:text-sm font-medium text-gray-900 dark:text-gray-100">
                 Total Projects
               </h2>
-              <TrendingUp className="h-4 w-4 text-gray-400" />
+              <TrendingUp className="h-4 w-4 text-gray-400 dark:text-gray-100" />
             </div>
             <div className="text-xl sm:text-2xl font-bold text-white">
               {
@@ -779,14 +778,14 @@ function Reports() {
             <p className="text-xs text-gray-500">Projects with user's tasks</p>
           </div>
         )}
-        <div className="w-full bg-white rounded-xl p-4 shadow-md">
+        <div className="w-full bg-white rounded-xl p-4 shadow-md dark:bg-[#1e1f23] dark:text-white">
           <div className="flex items-center justify-between pb-2">
-            <h2 className="text-xs sm:text-sm font-medium text-gray-900">
+            <h2 className="text-xs sm:text-sm font-medium text-gray-900 dark:text-gray-100">
               Total Tasks
             </h2>
             <CheckSquare className="h-4 w-4 text-gray-400" />
           </div>
-          <div className="text-xl sm:text-2xl font-bold text-gray-900">
+          <div className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100">
             {reportType === "projects" && selectedProjectId
               ? filteredTasks.length
               : reportType === "users" && selectedUserId
@@ -814,14 +813,14 @@ function Reports() {
                 } completed`}
           </p>
         </div>
-        <div className="w-full bg-white rounded-xl p-4 shadow-md">
+        <div className="w-full bg-white rounded-xl p-4 shadow-md dark:bg-[#1e1f23]">
           <div className="flex items-center justify-between pb-2">
-            <h2 className="text-xs sm:text-sm font-medium text-gray-900">
+            <h2 className="text-xs sm:text-sm font-medium text-gray-900 dark:text-gray-100">
               Team Members
             </h2>
             <Users className="h-4 w-4 text-gray-400" />
           </div>
-          <div className="text-xl sm:text-2xl font-bold text-gray-900">
+          <div className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100">
             {(reportType === "projects" && selectedProjectId) ||
             (reportType === "tasks" && selectedProjectId)
               ? new Set(
@@ -846,10 +845,10 @@ function Reports() {
     {reportType !== "projects" && (
   <div className="grid grid-cols-1 gap-6">
     <div
-      className="bg-white p-4 rounded-xl shadow-sm border border-gray-100"
+      className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 dark:bg-[#1e1f23] dark:text-white dark:border-gray-700 "
       ref={pieChartRef}
     >
-      <h2 className="text-base sm:text-lg font-semibold mb-4 text-gray-700">
+      <h2 className="text-base sm:text-lg font-semibold mb-4 text-gray-700 dark:text-gray-100">
         {reportType === "users"
           ? selectedUserId
             ? "Task Status Distribution"
@@ -892,13 +891,13 @@ function Reports() {
     </div>
 
     {reportType === "users" && !selectedUserId && (
-      <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-        <h2 className="text-base sm:text-lg font-semibold mb-4 text-gray-700">
+      <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 dark:bg-[#1e1f23] dark:text-white dark:border-gray-700 ">
+        <h2 className="text-base sm:text-lg font-semibold mb-4 text-gray-700 dark:text-gray-100">
           All Users
         </h2>
         <div className="overflow-x-auto">
-          <table className="w-full text-xs sm:text-sm text-left text-gray-600">
-            <thead className="text-xs text-gray-600 uppercase bg-gray-50">
+          <table className="w-full text-xs sm:text-sm text-left text-gray-600 dark:text-gray-300">
+            <thead className="text-xs text-gray-600 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-300">
               <tr>
                 <th className="px-4 py-2">Name</th>
                 <th className="px-4 py-2">Email</th>
@@ -918,16 +917,16 @@ function Reports() {
                 .map((user) => (
                   <tr
                     key={user._id}
-                    className="border-b border-gray-100 hover:bg-gray-50"
+                    className="border-b border-gray-100 hover:bg-gray-50 dark:hover:bg-gray-700 "
                   >
-                    <td className="px-4 py-2 text-gray-800 font-medium">
+                    <td className="px-4 py-2 text-gray-800 font-medium dark:text-gray-100">
                       {toTitleCase(user.name)}
                     </td>
-                    <td className="px-4 py-2 text-gray-500">{user.email}</td>
-                    <td className="px-4 py-2 text-gray-500">
+                    <td className="px-4 py-2 text-gray-500 dark:text-gray-100">{user.email}</td>
+                    <td className="px-4 py-2 text-gray-500 dark:text-gray-100">
                       {toTitleCase(user.globalRole?.name) || "Unknown"}
                     </td>
-                    <td className="px-4 py-2 text-gray-500">
+                    <td className="px-4 py-2 text-gray-500 dark:text-gray-100">
                       {toTitleCase(user.status)}
                     </td>
                   </tr>
@@ -943,7 +942,7 @@ function Reports() {
       {projectTaskStatus.length > 0 &&
         (reportType === "overview" || reportType === "projects") && (
           <div
-            className="bg-white p-4 rounded-xl shadow-md"
+            className="bg-white p-4 rounded-xl shadow-md dark:bg-[#1e1f23] dark:text-white border border-gray-100 dark:border-gray-700"
             ref={barChartRef}
           >
             <h2 className="text-base sm:text-lg font-semibold mb-4">
@@ -1029,31 +1028,31 @@ function Reports() {
           </div>
         )}
 {reportType === "users" && selectedUserId && (
-  <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-    <h2 className="text-base sm:text-lg font-semibold mb-4 text-gray-700">
+  <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 dark:bg-[#1e1f23] dark:text-white dark:border-gray-700 space-y-2 text-sm">
+    <h2 className="text-base sm:text-lg font-semibold mb-4 text-gray-700 dark:text-gray-100">
       User Report
     </h2>
-    <div className="space-y-2 text-xs sm:text-sm text-gray-700">
+    <div className="space-y-2 text-xs sm:text-sm text-gray-700 dark:text-gray-300">
       <p>
-        <strong className="text-gray-500">Name:</strong> {selectedUser?.name}
+        <strong className="text-gray-500 dark:text-gray-100">Name:</strong> {selectedUser?.name}
       </p>
       <p>
-        <strong className="text-gray-500">Role:</strong>{" "}
+        <strong className="text-gray-500 dark:text-gray-100">Role:</strong>{" "}
         {selectedUser?.globalRole.name}
       </p>
       <p>
-        <strong className="text-gray-500">Email:</strong>{" "}
+        <strong className="text-gray-500 dark:text-gray-100">Email:</strong>{" "}
         {selectedUser?.email}
       </p>
     </div>
 
     <div className="mt-6">
-      <h3 className="text-sm sm:text-md font-semibold mb-2 text-gray-700">
+      <h3 className="text-sm sm:text-md font-semibold mb-2 text-gray-700 dark:text-gray-100">
         Assigned Tasks
       </h3>
       <div className="overflow-x-auto">
-        <table className="w-full text-xs sm:text-sm text-left text-gray-600">
-          <thead className="text-xs text-gray-600 uppercase bg-gray-50">
+        <table className="w-full text-xs sm:text-sm text-left text-gray-600 dark:text-gray-300">
+          <thead className="text-xs text-gray-600 uppercase bg-gray-50 dark:bg-gray-800 dark:text-gray-300">
             <tr>
               <th className="px-2 sm:px-4 py-2">Task</th>
               <th className="px-2 sm:px-4 py-2">Project</th>
@@ -1065,9 +1064,9 @@ function Reports() {
             {filteredUserTasks.map((task) => (
               <tr
                 key={task._id}
-                className="border-b border-gray-100 hover:bg-gray-50"
+                className="border-b border-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800"
               >
-                <td className="px-2 sm:px-4 py-2 text-gray-800 font-medium">
+                <td className="px-2 sm:px-4 py-2 text-gray-800 font-medium dark:text-gray-100">
                   {task.title || "Untitled Task"}
                 </td>
                 <td className="px-2 sm:px-4 py-2">
@@ -1097,7 +1096,7 @@ function Reports() {
 )}
 
  {reportType === "projects" && selectedProjectId && selectedProject && (
-  <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 space-y-2 text-sm text-gray-700">
+  <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 space-y-2 text-sm text-gray-700 dark:bg-[#1e1f23] dark:text-white dark:border-gray-700">
     <h2 className="text-base sm:text-lg font-semibold mb-2">
       Project Details
     </h2>
@@ -1134,13 +1133,13 @@ function Reports() {
       {/* Project Summary Table */}
       {/* Show Project Summary Table when in projects tab and no specific project is selected */}
      {reportType === "projects" && !selectedProjectId ? (
-  <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-    <h2 className="text-base sm:text-lg font-semibold mb-4 text-gray-700">
+  <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 dark:bg-[#1e1f23] dark:text-white dark:border-gray-700">
+    <h2 className="text-base sm:text-lg font-semibold mb-4 text-gray-700 dark:text-gray-100">
       All Projects Overview
     </h2>
     <div className="overflow-x-auto max-h-[400px]">
-      <table className="w-full text-xs sm:text-sm text-left text-gray-600">
-        <thead className="text-xs text-gray-600 uppercase bg-gray-50">
+      <table className="w-full text-xs sm:text-sm text-left text-gray-600 dark:text-gray-300">
+        <thead className="text-xs text-gray-600 uppercase bg-gray-50 dark:bg-gray-800 dark:text-gray-300">
           <tr>
             <th className="px-4 py-2">Project</th>
             <th className="px-4 py-2">Total Tasks</th>
@@ -1154,9 +1153,9 @@ function Reports() {
           {projectSummaries.map((proj) => (
             <tr
               key={proj.id}
-              className="border-b border-gray-100 hover:bg-gray-50"
+              className="border-b border-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800"
             >
-              <td className="px-4 py-2 text-gray-800 font-medium">
+              <td className="px-4 py-2 text-gray-800 font-medium dark:text-gray-100">
                 {toTitleCase(proj.title)}
               </td>
               <td className="px-4 py-2">{proj.taskCount}</td>
@@ -1180,13 +1179,13 @@ function Reports() {
   </div>
 ) : reportType === "users" && selectedUserId ? null : (
         //  Show Recent Task Activity for other views, EXCEPT when a specific user is selected
-       <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-  <h2 className="text-base sm:text-lg font-semibold mb-4 text-gray-700">
+       <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 dark:bg-[#1e1f23] dark:text-white dark:border-gray-700">
+  <h2 className="text-base sm:text-lg font-semibold mb-4 text-gray-700 dark:text-gray-100">
     Recent Task Activity
   </h2>
   <div className="overflow-x-auto max-h-[300px]">
-    <table className="w-full text-xs sm:text-sm text-left text-gray-600">
-      <thead className="text-xs text-gray-600 uppercase bg-gray-50">
+    <table className="w-full text-xs sm:text-sm text-left text-gray-600 dark:text-gray-300">
+      <thead className="text-xs text-gray-600 uppercase bg-gray-50 dark:bg-gray-800 dark:text-gray-300">
         <tr>
           <th className="px-2 sm:px-6 py-2 sm:py-3">Task</th>
           <th className="px-2 sm:px-6 py-2 sm:py-3">Project</th>
@@ -1200,9 +1199,9 @@ function Reports() {
         {recentTasks.map((task) => (
           <tr
             key={task.id}
-            className="border-b border-gray-100 hover:bg-gray-50"
+            className="border-b border-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800"
           >
-            <td className="px-2 sm:px-6 py-2 sm:py-4 font-medium text-gray-800">
+            <td className="px-2 sm:px-6 py-2 sm:py-4 font-medium text-gray-800 dark:text-gray-100">
               {task.title}
             </td>
             <td className="px-2 sm:px-6 py-2 sm:py-4">{task.project}</td>

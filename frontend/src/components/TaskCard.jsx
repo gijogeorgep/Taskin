@@ -190,7 +190,7 @@ function TaskCard({ isOpen, setTaskOpen, projectId, refreshProject }) {
       {allCategoryNames.map((catName) => (
         <div
           key={catName}
-          className="border border-gray-300 bg-white rounded-xl p-6 max-h-[520px] overflow-y-auto shadow-sm"
+          className="border border-gray-300 bg-white rounded-xl p-6 max-h-[520px] overflow-y-auto shadow-sm dark:bg-gray-800 dark:border-gray-700"
         >
           {/* Category Header */}
           <div className="flex justify-between items-center mb-4">

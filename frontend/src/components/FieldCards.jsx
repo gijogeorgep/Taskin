@@ -75,12 +75,12 @@ function FieldCards() {
             return (
               <div
                 key={field._id}
-                className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-200 hover:border-gray-300 relative group"
+                className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-200 hover:border-gray-300 relative group dark:bg-[#1e1f23] dark:border-gray-700 dark:text-white "
               >
                 {/* Header with title and actions */}
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1 pr-4">
-                    <h3 className="font-bold text-xl text-gray-900 leading-tight">
+                    <h3 className="font-bold text-xl text-gray-900 leading-tight dark:text-gray-100">
                       {toTitleCase(field.fieldName) || "Unnamed Field"}
                     </h3>
                   </div>

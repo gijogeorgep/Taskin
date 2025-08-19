@@ -114,17 +114,22 @@ function ProfileSettings() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 p-4 sm:p-6">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 p-4 sm:p-6 dark:from-[#1e1f23] dark:via-[#252526] dark:to-[#2c2d31]">
       {/* Background decorative elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-200/30 to-purple-200/30 rounded-full blur-3xl"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-200/30 to-purple-200/30 rounded-full blur-3xl "></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-indigo-200/30 to-pink-200/30 rounded-full blur-3xl"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-cyan-200/20 to-blue-200/20 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative w-full max-w-4xl mx-auto">
         {/* Main glassmorphism container */}
-        <div className="backdrop-blur-xl bg-white/70 rounded-3xl shadow-2xl border border-white/20 p-8 sm:p-12">
+       <div className="backdrop-blur-xl 
+  bg-white/70 dark:bg-[#1e1f23]/70 
+  rounded-3xl shadow-2xl 
+  border border-white/20 dark:border-gray-700 
+  p-8 sm:p-12">
+
           {/* Profile Header */}
           <div className="flex flex-col sm:flex-row items-center gap-8 mb-10">
             <div 
@@ -167,7 +172,11 @@ function ProfileSettings() {
                   placeholder="Enter your name"
                 />
               ) : (
-                <h1 className="text-4xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent mb-2">
+                <h1 className="text-4xl font-bold 
+  bg-gradient-to-r from-gray-800 to-gray-600 
+  dark:from-gray-200 dark:to-gray-400 
+  bg-clip-text text-transparent mb-2">
+
                   {authUser?.name || "Your Name"}
                 </h1>
               )}
@@ -227,9 +236,9 @@ function ProfileSettings() {
               />
             ) : (
               <div className="px-6 py-4 rounded-2xl bg-gradient-to-r from-white/50 to-white/30 backdrop-blur-sm border border-white/20">
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-gray-700 leading-relaxed dark:text-gray-300">
                   {authUser?.bio || (
-                    <span className="italic text-gray-400 flex items-center gap-2">
+                    <span className="italic text-gray-400 flex items-center gap-2 dark:text-gray-500">
                       <Plus className="w-4 h-4" />
                       Add your bio
                     </span>
@@ -242,7 +251,7 @@ function ProfileSettings() {
           {/* Custom Fields - Your original logic */}
           {customFields.length > 0 && (
             <div className="mb-10">
-              <label className="flex items-center gap-2 text-lg font-semibold text-gray-700 mb-6">
+              <label className="flex items-center gap-2 text-lg font-semibold text-gray-700 mb-6 dark:text-gray-300">
                 <div className="w-2 h-6 bg-gradient-to-b from-purple-500 to-pink-500 rounded-full"></div>
                 Additional Information
               </label>
@@ -250,7 +259,7 @@ function ProfileSettings() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {customFields.map((field) => (
                   <div key={field._id} className="space-y-3">
-                    <label className="text-sm font-semibold text-gray-600 flex items-center gap-2">
+                    <label className="text-sm font-semibold text-gray-600 flex items-center gap-2 dark:text-gray-400">
                       <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
                       {field.fieldName}
                     </label>

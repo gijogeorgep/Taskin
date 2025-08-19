@@ -6,7 +6,7 @@ import { Filter, Plus, Search } from "lucide-react";
 import { useAuthStore } from "../store/useAuthStore.js";
 
 const SkeletonCard = () => (
-  <div className="animate-pulse bg-white/80 backdrop-blur-sm rounded-lg p-4 border border-gray-200 shadow-sm">
+  <div className="animate-pulse bg-white/80 backdrop-blur-sm rounded-lg p-4 border border-gray-200 shadow-sm dark:bg-gray-800/80 dark:border-gray-700">
     <div className="h-6 bg-gray-200 rounded w-3/5 mb-4"></div>
     <div className="h-4 bg-gray-200 rounded w-full mb-2"></div>
     <div className="h-4 bg-gray-200 rounded w-5/6 mb-4"></div>
@@ -119,7 +119,7 @@ export default function Projects() {
 
   if (isLoading) {
     return (
-      <section className="px-4 py-6 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 min-h-screen pl-[20%] dark:bg-primary-dark">
+      <section className="px-4 py-6 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 min-h-screen pl-[20%] dark:dark:from-[#252526] dark:via-[#2c2d31] dark:to-[#3a3b40]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[...Array(6)].map((_, index) => (
             <SkeletonCard key={index} />
@@ -130,7 +130,7 @@ export default function Projects() {
   }
 
   return (
-    <section className="px-4 py-6 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 w-full min-h-screen md:pl-[20%] dark:from-[#252526] dark:via-[#2c2d31] dark:to-[#3a3b40]
+    <section className="px-4 py-6 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 w-full min-h-screen md:pl-[20%] dark:dark:from-[#252526] dark:via-[#2c2d31] dark:to-[#3a3b40]
 
 ">
       <div className="flex flex-col gap-6 sm:items-start md:justify-between">
