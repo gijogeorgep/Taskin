@@ -19,7 +19,9 @@ function RecentTasks() {
     authUser?.role === "admin" ||
     authUser?.role === "manager" ||
     authUser?.role === "Super Admin" ||
+    authUser?.role === "Demo User" || 
     authUser?.isAdmin === true;
+    
 
   const getPriorityStyle = (priority = "") => {
     switch (priority.toLowerCase()) {

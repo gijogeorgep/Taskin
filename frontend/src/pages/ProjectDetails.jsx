@@ -55,7 +55,6 @@ export default function ProjectDetails() {
   const { getTaskByProject } = useTaskStore();
   const { createCategory } = useCategoryStore();
   const [form, setForm] = useState({ category: "" });
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

@@ -38,7 +38,8 @@ export default function Projects() {
   const userProjects =
     authUser?.role === "admin" ||
     authUser?.role === "manager" ||
-    authUser?.role === "Super Admin"
+    authUser?.role === "Super Admin"||
+    authUser?.role === "Demo User"
       ? projects
       : projects?.filter((project) =>
           project?.members?.some((member) => member.user === authUser?._id)

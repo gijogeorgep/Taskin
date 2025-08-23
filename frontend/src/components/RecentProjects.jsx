@@ -28,7 +28,7 @@ function RecentProjects() {
     str?.toLowerCase().replace(/\b\w/g, (char) => char.toUpperCase());
 
   const filteredProjects =
-    authUser?.role === "admin" || authUser?.role === "manager" || authUser?.role === "Super Admin"
+    authUser?.role === "admin" || authUser?.role === "manager" || authUser?.role === "Super Admin"|| authUser?.role === "Demo User"
       ? projects
       : projects?.filter((project) =>
           project.members?.some((member) => member.user === authUser?._id)

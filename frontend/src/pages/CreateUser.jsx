@@ -80,16 +80,19 @@ const CreateUser = () => {
 
   if (isLoading) {
     return (
-      <div className="flex flex-col md:flex-row bg-gray-100 min-h-screen">
+      <div className="flex flex-col md:flex-row bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 dark:from-[#252526] dark:via-[#2c2d31] dark:to-[#3a3b40]0 min-h-screen">
+        <h1 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 p-6">
+          Create User
+        </h1>
         <div className="flex flex-col w-full justify-center items-center py-8">
-          <div className="bg-white p-4 sm:p-6 rounded-lg shadow-md w-full max-w-xs sm:max-w-md md:max-w-lg space-y-4">
+          <div className="bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-lg shadow-md w-full max-w-xs sm:max-w-md md:max-w-lg space-y-4">
             {[...Array(4)].map((_, i) => (
               <div key={i} className="space-y-2">
-                <div className="h-4 w-1/3 bg-gray-200 rounded animate-pulse" />
-                <div className="h-10 w-full bg-gray-200 rounded animate-pulse" />
+                <div className="h-4 w-1/3 bg-gray-200 dark:bg-gray-700 rounded animate-pulse" />
+                <div className="h-10 w-full bg-gray-200 dark:bg-gray-700 rounded animate-pulse" />
               </div>
             ))}
-            <div className="h-10 w-full bg-gray-200 rounded animate-pulse mt-4" />
+            <div className="h-10 w-full bg-gray-200 dark:bg-gray-700 rounded animate-pulse mt-4" />
           </div>
         </div>
       </div>
@@ -97,64 +100,78 @@ const CreateUser = () => {
   }
 
   return (
-    <div className="flex lg:flex-col md:flex-row justify-center bg-gradient-to-br from-gray-50 via-white to-blue-50 min-h-screen lg:pl-[20%]">
+    <div className="flex lg:flex-col md:flex-row justify-center bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-800 min-h-screen lg:pl-[20%]">
       <div className="flex items-start p-4">
         <Link to="/users">
-          <ArrowLeft className="text-gray-600 hidden sm:block" />
+          <ArrowLeft className="text-gray-600 dark:text-gray-300 hidden sm:block" />
         </Link>
       </div>
+
       <div className="flex flex-col w-[90%] justify-center items-center py-8">
-        <div className="bg-white text-black p-4 sm:p-6 rounded-lg shadow-md w-full max-w-xs sm:max-w-md md:max-w-lg border border-gray-200">
+        <div className="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 p-6 rounded-lg shadow-md w-full max-w-xs sm:max-w-md md:max-w-lg border border-gray-200 dark:border-gray-700">
+          <h1 className="text-2xl font-semibold mb-4">Create User</h1>
+
           <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full">
-            
-            <label htmlFor="name">Name</label>
+            {/* Name */}
+            <label htmlFor="name" className="font-medium">
+              Name
+            </label>
             <input
               id="name"
               name="name"
               type="text"
               placeholder="Enter Name"
-              className={`border-2 rounded-lg p-2 focus:outline-none focus:border-blue-500 ${
-                errors.name ? "border-red-500" : "border-gray-300"
+              className={`border-2 rounded-lg p-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-blue-500 ${
+                errors.name ? "border-red-500" : "border-gray-300 dark:border-gray-600"
               }`}
               onChange={handleChange}
               value={data.name}
             />
             {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
 
-            <label htmlFor="email">Email</label>
+            {/* Email */}
+            <label htmlFor="email" className="font-medium">
+              Email
+            </label>
             <input
               id="email"
               name="email"
               type="email"
               placeholder="Enter Email"
-              className={`border-2 rounded-lg p-2 focus:outline-none focus:border-blue-500 ${
-                errors.email ? "border-red-500" : "border-gray-300"
+              className={`border-2 rounded-lg p-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-blue-500 ${
+                errors.email ? "border-red-500" : "border-gray-300 dark:border-gray-600"
               }`}
               onChange={handleChange}
               value={data.email}
             />
             {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
 
-            <label htmlFor="password">Password</label>
+            {/* Password */}
+            <label htmlFor="password" className="font-medium">
+              Password
+            </label>
             <input
               id="password"
               name="password"
               type="password"
               placeholder="Enter Password"
-              className={`border-2 rounded-lg p-2 focus:outline-none focus:border-blue-500 ${
-                errors.password ? "border-red-500" : "border-gray-300"
+              className={`border-2 rounded-lg p-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-blue-500 ${
+                errors.password ? "border-red-500" : "border-gray-300 dark:border-gray-600"
               }`}
               onChange={handleChange}
               value={data.password}
             />
             {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
 
-            <label htmlFor="roleName">Role</label>
+            {/* Role */}
+            <label htmlFor="roleName" className="font-medium">
+              Role
+            </label>
             <select
               id="roleName"
               name="roleName"
-              className={`border-2 rounded-lg p-2 focus:outline-none focus:border-blue-500 ${
-                errors.roleName ? "border-red-500" : "border-gray-300"
+              className={`border-2 rounded-lg p-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-blue-500 ${
+                errors.roleName ? "border-red-500" : "border-gray-300 dark:border-gray-600"
               }`}
               value={data.roleName}
               onChange={handleChange}
@@ -168,6 +185,7 @@ const CreateUser = () => {
             </select>
             {errors.roleName && <p className="text-red-500 text-sm">{errors.roleName}</p>}
 
+            {/* Submit */}
             <button
               type="submit"
               className="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors"
